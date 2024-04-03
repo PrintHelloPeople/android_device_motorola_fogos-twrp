@@ -25,7 +25,7 @@ From Stock ROM MMI-U1UG34.23-28-2
 
 ### Working
 
-- Touch, Format Partitions, Sideload
+- Touch, Format Partitions, Sideload, MTP, Changing A/B slot
 
 ### To implement
 
