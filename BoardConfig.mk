@@ -146,7 +146,7 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
+
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_FB2PNG := true
 TW_MAX_BRIGHTNESS := 2047
@@ -154,8 +154,8 @@ TW_DEFAULT_BRIGHTNESS := 1000
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_LIBRESETPROP := true
 #TW_NO_SCREEN_BLANK := true
-TW_HAS_EDL_MODE := true
 
 
 # Remove vibration support
@@ -226,3 +226,10 @@ TARGET_USES_LOGD := true
 RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/debuggerd
 TARGET_RECOVERY_DEVICE_MODULES += strace
 RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/strace
+
+
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone53/temp"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
+
+TW_DEVICE_VERSION := Fogos | PrintHelloPeople
+
