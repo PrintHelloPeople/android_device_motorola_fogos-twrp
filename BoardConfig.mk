@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/motorola/corfur
+DEVICE_PATH := device/motorola/fogos
 
 # Architecture
 TARGET_ARCH := arm64
@@ -22,8 +22,11 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a75
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := corfur
+TARGET_BOOTLOADER_BOARD_NAME := fogos
 TARGET_NO_BOOTLOADER := true
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := fogos,fogos_retcn
 
 # Kernel
 TARGET_NO_KERNEL := false
@@ -46,6 +49,8 @@ BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_USES_PRODUCTIMAGE := true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
+BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 100663296
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := 4096
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -53,16 +58,18 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 
-BOARD_SUPER_PARTITION_SIZE := 14512291840
+BOARD_SUPER_PARTITION_SIZE := 5905580032
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 7256141824 # BOARD_SUPER_PARTITION_SIZE/2 - 4MB
-BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := product system system_ext vendor
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 5901385728 # BOARD_SUPER_PARTITION_SIZE/2 - 4MB
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor
 
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
+TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Props
@@ -96,21 +103,28 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone50/temp"
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone89/temp"
 TW_THEME := portrait_hdpi
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_QCOM_ATS_OFFSET := 1621580431500
-TW_DEFAULT_BRIGHTNESS := 420
-TW_MAX_BRIGHTNESS := 1024
+TW_DEFAULT_BRIGHTNESS := 150
+TW_MAX_BRIGHTNESS := 2047
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_CRYPTO := true
-TW_H_OFFSET := -115
-TW_Y_OFFSET := 115
 TW_NO_EXFAT_FUSE := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_RESETPROP := true
-TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko mmi_relay.ko moto_f_usbnet.ko wl2864c.ko exfat.ko mmi_annotate.ko mmi_sc8549.ko qpnp_adaptive_charge.ko wl2866d.ko focaltech_v2_mmi.ko mmi_info.ko mmi-smbcharger-iio.ko sensors_class.ko goodix_v1510_mmi.ko mmi_parallel_charger_iio.ko mmi_sys_temp.ko touchscreen_mmi.ko"
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\")
+
+# Statusbar icons flags
+TW_STATUS_ICONS_ALIGN := center
+TW_CUSTOM_CPU_POS := 280
+TW_CUSTOM_CLOCK_POS := 50
+TW_CUSTOM_BATTERY_POS := 790
+
+# Add TW_DEVICE_VERSION
+TW_DEVICE_VERSION := corfur-To-fogos_LazymeaoProjects
 
 # TWRP-debug
 TARGET_USES_LOGD := true

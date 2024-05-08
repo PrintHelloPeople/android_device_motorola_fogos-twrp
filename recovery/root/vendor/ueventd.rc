@@ -72,7 +72,6 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/smd2                 0660   bluetooth  bluetooth
 /dev/smd3                 0660   bluetooth  bluetooth
 /dev/btpower              0660   bluetooth  system
-/dev/btfmslim             0660   bluetooth  system
 
 #permissions for pta
 /dev/pta                  0660   system     system
@@ -135,6 +134,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/cvp*                 0660   system     camera
 /dev/media*               0660   system     camera
 /dev/v4l-subdev*          0660   system     camera
+/dev/cci_intf             0660   system     camera
 /dev/qseecom              0660   system     drmrpc
 /dev/qce                  0660   system     drmrpc
 /dev/smcinvoke            0660   system     drmrpc
@@ -174,11 +174,30 @@ firmware_directories /vendor/firmware_mnt/image/
 
 #qvr
 /dev/qvr_external_sensor_ioctl      0660  system  system
-/dev/bus/usb/*                      0660  root    usb
-/dev/hidraw*                        0660  root    usb
+/sys/kernel/qvr_external_sensor/fd  0660  system  system
+/dev/bus/usb/001/002      0660   system     system
+/dev/bus/usb/001/003      0660   system     system
+/dev/bus/usb/001/004      0660   system     system
+/dev/bus/usb/001/005      0660   system     system
+/dev/bus/usb/002/002      0660   system     system
+/dev/bus/usb/002/003      0660   system     system
+/dev/bus/usb/002/004      0660   system     system
+/dev/bus/usb/002/005      0660   system     system
+/dev/bus/usb/003/002      0660   system     system
+/dev/bus/usb/003/003      0660   system     system
+/dev/bus/usb/003/004      0660   system     system
+/dev/bus/usb/003/005      0660   system     system
+/dev/hidraw0              0660   system     system
+/dev/hidraw1              0660   system     system
+/dev/hidraw2              0660   system     system
+/dev/hidraw3              0660   system     system
+/dev/hidraw4              0660   system     system
+/dev/hidraw5              0660   system     system
+/dev/hidraw6              0660   system     system
+/dev/hidraw7              0660   system     system
+/dev/hidraw8              0660   system     system
+/dev/hidraw9              0660   system     system
 
-#rawdump
-/dev/block/platform/soc/*/by-name/rawdump       0660   root     system
 # Trustonic TEE device
 /dev/mobicore             0600   system     system
 /dev/mobicore-user        0666   system     system
@@ -322,6 +341,7 @@ firmware_directories /vendor/firmware_mnt/image/
 #nfc permissions
 /dev/nfc-nci              0660    nfc         nfc
 /dev/nq-nci               0660    nfc         nfc
+/dev/sec-nfc              0660    nfc         nfc
 /dev/assd                 0660    nfc         nfc
 
 # UIO devices
@@ -407,9 +427,6 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/devices/system/memory/memory* state    0660 system system
 
 /sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
-
-#KGSL
-/sys/class/kgsl/kgsl-3d0    perfcounter              0660    root    shell
 
 # sys-fs display
 /sys/class/graphics/fb*     hpd                      0664    system  graphics
@@ -517,3 +534,5 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/class/fingerprint/fpc1020 irq_cnt    0440     system    system
 /sys/class/fingerprint/fpc1020 dev_enable 0220     system    system
 /sys/class/fingerprint/fpc1020 vendor     0444     system    system
+/sys/class/fingerprint/fpc1020 hw_reset   0220     system    system
+
