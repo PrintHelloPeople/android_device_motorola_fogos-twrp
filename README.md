@@ -51,8 +51,8 @@ to advanced menu and select Flash Current TWRP option.
 ```
 
 # Credits
-Base tree made by Venkat3620 https://github.com/moto-corfur/twrp_device_motorola_corfur
-Fixes and helping in development by lazycodebuilder
+<p>Base tree made by Venkat3620 https://github.com/moto-corfur/twrp_device_motorola_corfur<br>
+Fixes and helping in development by lazycodebuilder</p>
 
 
 
