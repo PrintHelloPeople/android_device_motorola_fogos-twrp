@@ -103,7 +103,7 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone89/temp"
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone53/temp"
 TW_THEME := portrait_hdpi
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_QCOM_ATS_OFFSET := 1621580431500
@@ -119,12 +119,13 @@ TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modu
 
 # Statusbar icons flags
 TW_STATUS_ICONS_ALIGN := center
-TW_CUSTOM_CPU_POS := 280
 TW_CUSTOM_CLOCK_POS := 50
+TW_CUSTOM_CPU_POS := 280
 TW_CUSTOM_BATTERY_POS := 790
 
+
 # Add TW_DEVICE_VERSION
-TW_DEVICE_VERSION := corfur-To-fogos_LazymeaoProjects
+TW_DEVICE_VERSION := Fogos
 
 # TWRP-debug
 TARGET_USES_LOGD := true

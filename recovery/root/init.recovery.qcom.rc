@@ -27,6 +27,11 @@
 
 import /init.recovery.qcom_decrypt.rc
 
+on early-init
+    start set_permissive
+
+
+
 on init
     write /sys/class/backlight/panel0-backlight/brightness 150
 
@@ -50,3 +55,10 @@ on property:twrp.modules.loaded=true
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
     umount /firmware
+
+
+service set_permissive /system/bin/set_permissive.sh
+    user root
+    group root
+    oneshot
+    seclabel u:r:recovery:s0
