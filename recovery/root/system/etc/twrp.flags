@@ -25,6 +25,5 @@ system_ext              ext4              /system_ext                           
 # Internal , OTA & external storage
 /data                  f2fs               /dev/block/bootdevice/by-name/userdata                        flags=fileencryption=ice:aes-256-cts
 /external_sd           auto               /dev/block/mmcblk1p1                    /dev/block/mmcblk1    flags=storage;wipeingui;removable
-/usb-otg               auto               /dev/block/sdg1                         /dev/block/sdg        flags=storage;wipeingui;removable
-
+/usbstorage            auto		  /dev/block/sdg1		  /dev/block/sdg	flags=fsflags=utf8;display="USB OTG";storage;wipeingui;removable
 
