@@ -32,9 +32,6 @@ on early-init
 
 
 
-on init
-    write /sys/class/backlight/panel0-backlight/brightness 150
-
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
