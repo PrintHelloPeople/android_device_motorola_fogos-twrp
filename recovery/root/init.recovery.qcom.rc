@@ -50,6 +50,8 @@ on post-fs
     start boot-hal-1-1
 
 on property:twrp.modules.loaded=true
+    start load_modules
+
     # Load ADSP firmware for PMIC
     wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
@@ -62,3 +64,10 @@ service set_permissive /system/bin/set_permissive.sh
     group root
     oneshot
     seclabel u:r:recovery:s0
+
+service load_modules /system/bin/load_modules.sh
+    user root
+    group root
+    oneshot
+    seclabel u:r:recovery:s0
+

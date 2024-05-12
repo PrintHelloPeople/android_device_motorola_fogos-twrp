@@ -1,0 +1,3 @@
+#!/sbin/bash
+
+modprobe -a -d /vendor/lib/modules/1.1 adsp_loader_dlkm aw882xx_acf aw882xx_k419 chipone_tddi_v2_mmi exfat fs1815_dlkm goodix_fod_mmi ilitek_v3_mmi mmi-smbcharger-iio mmi_annotate mmi_info mmi_relay mmi_sys_temp modules moto_f_usbnet qpnp_adaptive_charge sensors_class sx937x_sar synaptics_tcm_core synaptics_tcm_device synaptics_tcm_diagnostics synaptics_tcm_i2c synaptics_tcm_recovery synaptics_tcm_reflash synaptics_tcm_spi synaptics_tcm_testing synaptics_tcm_touch synaptics_tcm_zeroflash synx-driver usbtouchscreen

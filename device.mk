@@ -85,5 +85,10 @@ PRODUCT_TARGET_VNDK_VERSION := 30
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# Copy modules for depmod
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.ko,$(LOCAL_PATH)/prebuilt/modules,$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1)    
+# Copy modules .ko
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.ko,$(LOCAL_PATH)/prebuilt/modules,$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1)
+
+# Copy modules alias etc beacause PBRP doesn't like depmod
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,modules*,$(LOCAL_PATH)/prebuilt/modules,$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1)
+
+

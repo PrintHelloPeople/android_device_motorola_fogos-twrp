@@ -1,0 +1,29 @@
+chipone_tddi_v2_mmi.ko: sensors_class.ko
+synaptics_tcm_core.ko: synaptics_tcm_i2c.ko
+mmi_info.ko: mmi_annotate.ko
+synaptics_tcm_reflash.ko: synaptics_tcm_core.ko synaptics_tcm_i2c.ko
+usbtouchscreen.ko:
+mmi_relay.ko:
+synaptics_tcm_testing.ko: synaptics_tcm_core.ko synaptics_tcm_i2c.ko
+synaptics_tcm_device.ko: synaptics_tcm_core.ko synaptics_tcm_i2c.ko
+goodix_fod_mmi.ko: mmi_relay.ko
+synaptics_tcm_zeroflash.ko: synaptics_tcm_core.ko synaptics_tcm_i2c.ko
+synaptics_tcm_recovery.ko: synaptics_tcm_core.ko synaptics_tcm_i2c.ko
+fs1815_dlkm.ko:
+sensors_class.ko:
+synaptics_tcm_touch.ko: synaptics_tcm_core.ko synaptics_tcm_i2c.ko
+mmi-smbcharger-iio.ko:
+mmi_annotate.ko:
+aw882xx_acf.ko:
+sx937x_sar.ko: sensors_class.ko
+mmi_sys_temp.ko:
+moto_f_usbnet.ko:
+synaptics_tcm_spi.ko:
+qpnp_adaptive_charge.ko:
+aw882xx_k419.ko:
+ilitek_v3_mmi.ko: mmi_info.ko mmi_annotate.ko sensors_class.ko
+synaptics_tcm_i2c.ko:
+synaptics_tcm_diagnostics.ko: synaptics_tcm_core.ko synaptics_tcm_i2c.ko
+adsp_loader_dlkm.ko:
+synx-driver.ko:
+exfat.ko:
