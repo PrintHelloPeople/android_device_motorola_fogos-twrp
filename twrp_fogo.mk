@@ -13,10 +13,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from fogo device
-$(call inherit-product, device/motorola/fogo/device.mk)
+$(call inherit-product, device/motorola/fogo_g/device.mk)
 
-PRODUCT_DEVICE := fogo
-PRODUCT_NAME := twrp_fogo
+PRODUCT_DEVICE := fogo_g
+PRODUCT_NAME := twrp_fogo_g
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := moto g 5G - 2024
 PRODUCT_MANUFACTURER := motorola
